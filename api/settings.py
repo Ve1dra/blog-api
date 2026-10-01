@@ -56,13 +56,13 @@ INSTALLED_APPS = [
 ]
 
 MIDDLEWARE = [
-    'log_request_id.middleware.RequestIDMiddleware',
-    'django.middleware.security.SecurityMiddleware',
-    "whitenoise.middleware.WhiteNoiseMiddleware",
-    'django.contrib.sessions.middleware.SessionMiddleware',
     'corsheaders.middleware.CorsMiddleware',
     'django.middleware.common.BrokenLinkEmailsMiddleware',
+    'log_request_id.middleware.RequestIDMiddleware',
+    'django.middleware.security.SecurityMiddleware',
     'django.middleware.common.CommonMiddleware',
+    "whitenoise.middleware.WhiteNoiseMiddleware",
+    'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
@@ -141,10 +141,15 @@ STATIC_URL = 'static/'
 
 AUTH_USER_MODEL = 'authentication.User'
 
-CORS_ORIGIN_ALLOW_ALL = False
+CORS_ORIGIN_ALLOW_ALL = True
 
-CORS_ORIGIN_WHITELIST = (
+CORS_ALLOWED_ORIGINS = (
+    'http://127.0.0.1:5500/',
+    'https://127.0.0.1:5500/',
+    'https://localhost:5500/',
     'http://127.0.0.1:5501/',
+    'https://127.0.0.1:5501/',
+    'https://localhost:5501/',
 )
 
 REST_FRAMEWORK = {
