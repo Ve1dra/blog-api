@@ -155,7 +155,7 @@ CORS_ALLOWED_METHODS = {
     "GET",
     "POST",
     "PATCH",
-    "DELETE"
+    "DELETE",
 }
 
 REST_FRAMEWORK = {
