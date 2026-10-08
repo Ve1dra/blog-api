@@ -56,7 +56,6 @@ class PostsCRUD(generics.GenericAPIView):
     def delete(self, request, id):
         post = self.get_queryset()
         post.delete()
-        post.save()
         return Response(status=200)
 
 class PostSearch(generics.GenericAPIView):
