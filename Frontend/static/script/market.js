@@ -20,16 +20,16 @@ function loadPosts() {
         return Response.json()
     }).then(data => {
         console.log(data);
-
-        for (let i = 0; i < data.length; i++) {
+        let dat = data.results
+        for (let i = 0; i < dat.length; i++) {
             const block = document.createElement('div')
             block.className = 'feed-post';
 
             const title = document.createElement("h3");
-            title.textContent = data[i].heading;
+            title.textContent = dat[i].heading;
 
             const body = document.createElement("p")
-            body.textContent = data[i].content;
+            body.textContent = dat[i].content;
 
             const btnDiv = document.createElement('div')
 
@@ -54,8 +54,8 @@ function loadPosts() {
 
             editBtn.addEventListener('click', async () => {
                 window.scrollTo({ top: 0, behavior: 'smooth' })
-                heading.value = data[i].heading
-                content.textContent = data[i].content
+                heading.value = dat[i].heading
+                content.textContent = dat[i].content
 
                 update_btn.addEventListener('click', async (e) => {
                     e.preventDefault()
@@ -63,7 +63,7 @@ function loadPosts() {
                         heading: heading.value,
                         content: content.value,
                     }
-                    fetch(`https://blog-api-n1d5.onrender.com/api/v1/users/patch/${data[i].id}/`, {
+                    fetch(`https://blog-api-n1d5.onrender.com/api/v1/users/patch/${dat[i].id}/`, {
                         method: "PATCH",
                         headers: {
                             "Authorization": `Bearer ${localStorage.getItem("access_token")}`,
@@ -82,7 +82,7 @@ function loadPosts() {
             })
 
             delBtn.addEventListener('click', async (e) => {
-                fetch(`https://blog-api-n1d5.onrender.com/api/v1/users/patch/${data[i].id}/`, {
+                fetch(`https://blog-api-n1d5.onrender.com/api/v1/users/patch/${dat[i].id}/`, {
                     method: "DELETE",
                     headers: { "Authorization": `Bearer ${localStorage.getItem("access_token")}`, }
                 }).then(Response => {
@@ -123,6 +123,7 @@ postForm.addEventListener('submit', async (e) => {
     }).then(data => {
         console.log(data)
         loadPosts()
+        location.reload()
     }).catch(e => { alert(e.message) })
 })
 
