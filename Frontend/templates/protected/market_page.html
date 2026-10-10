@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../../static/styles/market.css">
+    <title>Posts</title>
+</head>
+
+<body>
+    <div class="container">
+        <h1>My Blog</h1>
+
+        <div class="post">
+            <h2>Post a Content</h2>
+            <form id="post-form" style="display: grid; place-items: center;">
+                <div>
+                    <label for="head">Title</label>
+                    <input style="display: block; margin-bottom: 2rem;" id="head" type="text" value="">
+                </div>
+                <div>
+                    <label for="body">Body</label>
+                    <textarea style="display: block; resize: none; margin-bottom: 1.5rem; height: 8vh; width: 10vw;"
+                        id="body" placeholder="Type here"></textarea>
+                </div>
+                <div class="new-post">
+                    <button type="submit" class="post-btn">Post New Blog</button>
+                    <button class="get" type="submit">Update</button>
+                </div>
+            </form>
+        </div>
+
+
+    </div>
+    <div id="feed-post" class="feed">
+        <h2>Feed</h2>
+        <!-- Example feed posts (replace with JS later) -->
+    </div>
+    <a href="../accounts/login.html" class="back">Back</a>
+    <script src="../../static/script/market.js"></script>
+</body>
+
+</html>

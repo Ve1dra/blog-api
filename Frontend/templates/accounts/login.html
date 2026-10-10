@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="Veldra">
+    <title>AgriTrade - Login</title>
+    <link rel="stylesheet" href="../../static/styles/login.css">
+</head>
+
+<body>
+    <div class="parent-container">
+        <div class="img-container">
+            <img src="../../src/images/veldra_no_bg.png" alt="Company logo">
+        </div>
+
+        <div class="form-container">
+            <div class="container">
+                <div class="login-signup">
+                    <div class="toggle left">
+                        <p>Login</p>
+                    </div>
+                </div>
+
+                <div class="login">
+                    <p>Login to your Agri<span>Trade</span> account and start a joyful trading!</p>
+                    <form id="loginForm">
+                        <label for="username">Username</label>
+                        <input type="text" id="username">
+                        <span id="usernameError" class="error"></span>
+
+                        <label for="password">Password</label>
+                        <input type="password" id="password">
+                        <span id="passwordError" class="error"></span>
+
+                        <button id="loginBtn">Submit</button>
+                    </form>
+                    <p id="last">Don't have an account? <a href="signup.html">Signup</a></p>
+                </div>
+                <div class="signup">
+
+                </div>
+            </div>
+        </div>
+        <script src="../../static/script/login.js"></script>
+</body>
+
+</html>
