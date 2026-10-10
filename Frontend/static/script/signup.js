@@ -110,9 +110,7 @@ btn.addEventListener('submit', async (e)=>{
             return Response.json()
     })
     .then(data => {
-        const front = data;
-
-        console.log(data)
+        window.location.href = '/templates/protected/index.html'
     })
     .catch(e => alert(e.message))
 })
