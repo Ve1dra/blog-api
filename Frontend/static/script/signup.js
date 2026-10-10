@@ -19,7 +19,7 @@ usernameField.addEventListener("input", () => {
     if (/^[A-Za-z0-9\s]{3,10}$/.test(value)) {
     showMessage("username", "Username is valid.", true);
     } else {
-    showMessage("username", "Enter at least 3 characters.", false);
+    showMessage("username", "Enter not more than 10 and not less than 3 characters.", false);
     }
 });
 
