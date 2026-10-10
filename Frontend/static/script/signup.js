@@ -29,17 +29,17 @@ emailField.addEventListener("input", () => {
     if (/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value)) {
     showMessage("email", "Valid email!", true);
     } else {
-    showMessage("email", "Invalid email format.", false);
+    showMessage("email", "Invalid email format/email.", false);
     }
 });
 
 // Nigerian phone validation
 phoneField.addEventListener("input", () => {
     const value = phoneField.value.trim().replace(/[\s-]/g, "");
-    if (/^(\+234|0)[789][01]\d{8}$/.test(value)) {
+    if (/^(\+234)[789][01]\d{8}$/.test(value)) {
     showMessage("number", "Valid Nigerian number!", true);
     } else {
-    showMessage("number", "Must start with +234 or 0 and be valid.", false);
+    showMessage("number", "Must start with +234 and be valid.", false);
     }
 });
 
