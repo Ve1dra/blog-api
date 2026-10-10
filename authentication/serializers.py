@@ -1,21 +1,32 @@
 from rest_framework import serializers
 from authentication.models import User
 import datetime
+from django.core.validators import RegexValidator
+
+
+nigerian_phone_regex = RegexValidator(
+    regex=r'^(?:\+234|0)(?:7[0-1]|8[0-1]|9[0-1])\d{8}$',
+    message="Enter a valid Nigerian phone number starting with +234 or 0."
+)
+
 
 class SignupSerializer(serializers.ModelSerializer):
+    phone = serializers.CharField(
+        validators=[nigerian_phone_regex],
+        max_length=14,
+    )
     class Meta:
         model = User
         fields = ('id', 'username', 'email', 'phone', 'password', 'dob', 'is_active', 'is_staff', 'is_superuser')
 
     def validate(self, attrs):
         """attrs is the parameter that holds the all key - value in the field's variable"""
-        phone = attrs["phone"]
-        if not phone.startswith('+234') or phone.startswith('0'):
-            raise serializers.ValidationError("Phone number must start with +234")
-        if len(phone) != 14:
-            raise serializers.ValidationError("Phone number must be exactly 14 characters long")
+        phone_number = attrs["phone"]
+
+        if len(phone_number) not in (11, 14):
+            raise serializers.ValidationError("Phone number must be 11 or 14 characters long")
         try:
-            int(phone[1:])
+            int(phone_number[1:])
         except:
             raise serializers.ValidationError("Phone number must be numbers only")
 
