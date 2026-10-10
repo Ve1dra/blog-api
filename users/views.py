@@ -18,6 +18,7 @@ from users.models import Posts
 
 class PostView(generics.GenericAPIView):
     serializer_class = PostSerializer
+    pagination_class = CustomPagination
     permission_classes = [permissions.IsAuthenticated]
     throttle_classes = [UserRateThrottle]
 
@@ -33,6 +34,10 @@ class PostView(generics.GenericAPIView):
             return Response(cached, status=200)
 
         all_posts = self.get_queryset()
+        pagination = self.paginate_queryset(all_posts)
+        if pagination is not None:
+            serializer = self.serializer_class(all_posts, many=True)
+            return self.get_paginated_response(serializer.data)
         serializer = self.serializer_class(all_posts, many=True)
         print("Getting from the DB")
         cache.set(key, serializer.data, 120)
@@ -102,6 +107,10 @@ class PostSearch(generics.GenericAPIView):
             return Response(cached, status=200)
 
         all_posts = self.get_queryset()
+        pagination = self.paginate_queryset(all_posts)
+        if pagination is not None:
+            serializer = self.serializer_class(all_posts, many=True)
+            return self.get_paginated_response(serializer.data)
         serializer = self.serializer_class(all_posts, many=True)
         print("Fetching from the DB")
         cache.set(key, serializer.data, 120)

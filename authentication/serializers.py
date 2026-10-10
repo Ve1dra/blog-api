@@ -10,7 +10,7 @@ class SignupSerializer(serializers.ModelSerializer):
     def validate(self, attrs):
         """attrs is the parameter that holds the all key - value in the field's variable"""
         phone = attrs["phone"]
-        if not phone.startswith('+234'):
+        if not phone.startswith('+234') or phone.startswith('0'):
             raise serializers.ValidationError("Phone number must start with +234")
         if len(phone) != 14:
             raise serializers.ValidationError("Phone number must be exactly 14 characters long")
