@@ -123,6 +123,7 @@ postForm.addEventListener('submit', async (e) => {
     }).then(data => {
         console.log(data)
         loadPosts()
+        location.reload()
     }).catch(e => { alert(e.message) })
 })
 
