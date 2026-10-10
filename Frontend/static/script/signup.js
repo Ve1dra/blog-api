@@ -110,7 +110,7 @@ btn.addEventListener('submit', async (e)=>{
             return Response.json()
     })
     .then(data => {
-        window.location.href = '/templates/protected/market_page.html'
+        window.location.href = '/templates/accounts/login.html'
     })
     .catch(e => alert(e.message))
 })
