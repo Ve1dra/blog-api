@@ -1,0 +1,151 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+@font-face{
+    font-family: 'body';
+    src: url("../../src/fonts/AgricTradeFonts/NotoSans-Black.woff2");
+    font-display: swap;
+    font-weight: 400;
+    font-size: .6rem;
+}
+
+@font-face {
+    font-family: 'display';
+    src: url("../../src/fonts/AgricTradeFonts/NotoSans-ExtraBold.woff2");
+    font-weight: 900;
+    font-size: 2rem;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'title-label';
+    src: url("../../src/fonts/AgricTradeFonts/NotoSans-Medium.woff2");
+    font-weight: 600;
+    font-size: 1.02rem;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'heading';
+    src: url("../../src/fonts/AgricTradeFonts/SpecialGothicCondensedOne-Regular.woff2");
+    font-weight: 700;
+    font-size: 1.503rem;
+    font-display: swap;
+}
+
+.calculator{
+    background-color: hsl(0, 0%, 15%);
+    height: 100vh;
+}
+header{
+    display: flex;
+    padding-top: 4px;
+    justify-content: space-between;
+    align-items: center;
+    background: linear-gradient(120deg,
+    hsl(240, 35%, 55%) 0%,
+    hsl(240, 30%, 45%) 45%,
+    hsl(240, 25%, 35%) 50%,
+    /* hsl(240, 30%, 42%) 70%, */
+    hsl(240, 30%, 40%) 100%);
+}
+.app_name{
+    display: flex;
+    justify-content: center;
+    width: 40%;
+}
+.app_name h2{
+    font-family: 'heading';
+    color: hsla(241, 63%, 90%, .7);
+    position: relative;
+    top: 25px;
+    left: -30px;
+}
+span{
+    color: hsl(120, 47%, 60%);
+}
+.img-container{
+    width: 35%;
+}
+.img-container img{
+    width: 100%;
+    height: 100%;
+}
+.notification{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 40%;
+}
+.select{
+    display: flex;
+    position: relative;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+}
+#flag{
+    position: absolute;
+    top: 1.8%;
+    left: 35.7%;
+    width: 10%;
+}
+#market{
+    margin-bottom: 1%;
+    padding: 2%;
+    text-align: center;
+    align-items: center;
+    border-radius: 10px;
+    border: none;
+    outline: none;
+    background-color: hsla(240, 80%, 70%, 0.45);
+    color: hsl(0, 0%, 90%);
+    font-family: 'title-label';
+    font-size: 1.02rem;
+}
+option{
+    padding: 5%;
+    text-align: center;
+    background-color: hsl(240, 80%, 70%);
+    border-radius: 10px;
+    outline: none;
+    color: hsl(0, 0%, 90%);
+}
+
+.sidebar{
+    width: 7%;
+    position: fixed;
+    left: 0px;
+    box-shadow: 1px 2px 1px hsl(0, 0%, 45%);
+    height: 100vh;
+    font-family: 'title-label';
+    font-size: small;
+    border-top-right-radius: 3px;
+    background: linear-gradient(96deg,
+    hsl(240, 25%, 55%) 0%,
+    hsl(240, 30%, 45%) 45%,
+    hsl(240, 25%, 35%) 50%,
+    hsl(240, 30%, 42%) 70%,
+    hsl(240, 40%, 40%) 100%);
+    color: hsl(90, 50%, 70%);
+}
+.bar{
+    text-align: center;
+    height: 80vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+.bar div{
+    border: 1.4px solid hsl(51, 100%, 50%);
+    width: 73%;
+    height: 12%;
+    margin-left: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 12px;
+}
